@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from .models import Board
-from ..todos.serializers import TblTodoSerializer
+
+from .todo_serializer import TblTodoSerializer
+from ..models.board_model import Board
 
 
 class BoardSerializer(serializers.ModelSerializer):
