@@ -1,6 +1,7 @@
 from django.db import models
 
 from .board_model import Board
+from django.contrib.auth.models import User
 
 
 class TblTodo(models.Model):
@@ -9,6 +10,8 @@ class TblTodo(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     boards = models.ForeignKey(Board, related_name='todolist', on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='todos',
+                              null=True, blank=True, default=None)
 
     def __str__(self):
         return self.title

@@ -10,5 +10,7 @@ class BoardView(viewsets.ModelViewSet):
     queryset = Board.objects.all()
     serializer_class = BoardSerializer
 
-# def index(request):
-#     return HttpResponse("Hello world")
+
+class BoardViewDetail(viewsets.ModelViewSet):
+    queryset = Board.objects.all()
+    serializer_class = BoardSerializer

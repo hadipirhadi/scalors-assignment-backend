@@ -4,7 +4,7 @@ from .todo_serializer import TblTodoSerializer
 from ..models.board_model import Board
 
 
-class BoardSerializer(serializers.ModelSerializer):
+class BoardSerializer(serializers.HyperlinkedModelSerializer):
     todolists = TblTodoSerializer()
 
     class Meta:

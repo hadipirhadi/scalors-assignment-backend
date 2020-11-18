@@ -3,7 +3,7 @@ from rest_framework import serializers
 from ..models import TblTodo
 
 
-class TblTodoSerializer(serializers.ModelSerializer):
+class TblTodoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TblTodo
         # fields = ["name", "todolists"]
