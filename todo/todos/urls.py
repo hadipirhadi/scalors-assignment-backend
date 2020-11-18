@@ -6,7 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register('todo', views.TblTodoView)
 router.register('board', views.BoardView)
-router.register('user', views.UserView)
+router.register('reminders', views.ReminderViewSet)
 
 urlpatterns = [
     path('', include(router.urls))
