@@ -10,7 +10,7 @@ class TblTodo(models.Model):
     done = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    board = models.ForeignKey(Board, related_name='todolists', on_delete=models.CASCADE)
+    board = models.ForeignKey(Board, related_name='todos', on_delete=models.CASCADE)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='todos',
                               null=True, blank=True, default=None)
 

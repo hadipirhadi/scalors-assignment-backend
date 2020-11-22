@@ -7,3 +7,6 @@ from ..serializers import TblTodoSerializer
 class TblTodoView(viewsets.ModelViewSet):
     queryset = TblTodo.objects.all()
     serializer_class = TblTodoSerializer
+
+
+
