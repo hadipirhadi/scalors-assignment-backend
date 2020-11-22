@@ -1,5 +1,5 @@
 from django.db import models
-from ..execute import execute_reminder
+from ..tasks import execute_reminder
 
 
 class Reminder(models.Model):
