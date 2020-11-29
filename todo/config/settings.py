@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'todos.apps.TodosConfig',
-
+    'authentication.apps.AuthenticationConfig',
     # 3rd Party App
     'rest_framework'
 ]
@@ -118,11 +118,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-#     ]
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'authentication.backend.JWTAuthentication',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
+
+# JWT
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 # Celery Configuration Options
 CELERY_TIMEZONE = "Australia/Tasmania"
