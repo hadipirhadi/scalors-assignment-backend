@@ -11,7 +11,7 @@ class BoardView(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         """List all Boards"""
-        queryset = Board.objects.all()
+        queryset = Board.objects.filter(owner=self.request.user)
         serializer = BoardSerializer(queryset, many=True)
         return Response(serializer.data)
 
