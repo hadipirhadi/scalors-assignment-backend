@@ -20,6 +20,11 @@ class BoardSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['name', 'todos', 'total_todos', 'total_uncompleted']
 
 
+# class NameSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         model = Board
+#         fields = "name"
+
 # class BoardOnlySerializer(serializers.HyperlinkedModelSerializer):
 #     class Meta:
 #         model = Board

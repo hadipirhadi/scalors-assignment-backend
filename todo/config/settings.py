@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'todos.apps.TodosConfig',
     'authentication.apps.AuthenticationConfig',
     # 3rd Party App
-    'rest_framework'
+    'rest_framework',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,18 @@ TEMPLATES = [
         },
     },
 ]
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        "Auth Token eg [Bearer (JWT) ]": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -120,9 +133,11 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'authentication.backend.JWTAuthentication',
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'authentication.backend.JWTAuthentication',
+    )
 }
 
 # JWT

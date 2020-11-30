@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
 
-from ..serializers import UserSerializer
-
-
-class UserView(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+# from ..serializers import UserSerializer
+#
+#
+# class UserView(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#     permission_classes = [permissions.IsAdminUser]
